@@ -1,20 +1,11 @@
 'use strict';
 
-//need variable for username
-
-let userNameInput = "";
-
-
 function displayResults(responseJson) {
   // if there are previous results, remove them
   console.log(responseJson);
   $('#results-list').empty();
 
   for (let i = 0; i < responseJson.length ; i++){
-    // for each video object in the articles
-    //array, add a list item to the results 
-    //list with the article title, source, author,
-    //description, and image
     $('#results-list').append(
       `<li><h3><a href="${responseJson[i].html_url}">${responseJson[i].name}</a></h3>
       <p>${responseJson[i].name}</p>
@@ -27,8 +18,6 @@ function displayResults(responseJson) {
 
 function getRepos(searchTerm) {
   const url = `https://api.github.com/users/${searchTerm}/repos`;
-  //const url = searchURL + '?' + queryString;
-
   console.log(url);
 
   fetch(url)
